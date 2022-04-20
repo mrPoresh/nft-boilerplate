@@ -1,1 +1,7 @@
-<p>login-dialog works!</p>
+<div fxLayout="column" fxLayoutAlign="start center">
+    <div class="head" fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="logo"><h1>Login</h1></div>
+        <app-close-dialog-button (closeEvent)="closeDialog($event)"></app-close-dialog-button>
+    </div>
+    <app-login (closeEvent)="closeDialog($event)"></app-login>
+</div>

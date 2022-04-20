@@ -23,6 +23,7 @@ export class SuccessDialogComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close();
+    /* location.reload(); */
   }
 
   ngOnInit() {

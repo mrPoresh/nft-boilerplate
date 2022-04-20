@@ -18,10 +18,10 @@ import { SlideMenuButtonComponent } from './components/slide-menu/slide-menu-but
 import { SlideMenuItemsComponent } from './components/slide-menu/slide-menu-items/slide-menu-items.component';
 import { FooterComponent } from './components/base-components/footer/footer.component';
 import { LogoutButtonComponent } from './components/auth/logout-button/logout-button.component';
-import { LoginDialogComponent } from './components/auth/login/login-dialog/login-dialog.component';
+import { LoginDialogComponent, LoginDialogRouteComponent } from './components/auth/login/login-dialog/login-dialog.component';
 import { LoginComponent } from './components/auth/login/login/login.component';
 import { LoginButtonComponent } from './components/auth/login/login-button/login-button.component';
-import { SignupDialogComponent } from './components/auth/signup/signup-dialog/signup-dialog.component';
+import { SignupDialogComponent, SignupDialogRouteComponent } from './components/auth/signup/signup-dialog/signup-dialog.component';
 import { SignupFormComponent } from './components/auth/signup/signup-form/signup-form.component';
 import { SignupButtonComponent } from './components/auth/signup/signup-button/signup-button.component';
 import { TestPageComponent } from './components/base-components/test-page/test-page.component';
@@ -41,9 +41,11 @@ import { TestPageComponent } from './components/base-components/test-page/test-p
     FooterComponent,
     LogoutButtonComponent,
     LoginDialogComponent,
+    LoginDialogRouteComponent,
     LoginComponent,
     LoginButtonComponent,
     SignupDialogComponent,
+    SignupDialogRouteComponent,
     SignupFormComponent,
     SignupButtonComponent,
     TestPageComponent

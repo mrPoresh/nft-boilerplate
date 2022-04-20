@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Moralis } from 'moralis';
-import { Observable, BehaviorSubject, of } from 'rxjs';
-import { distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { Observable, BehaviorSubject, of, from, throwError } from 'rxjs';
+import { distinctUntilChanged, switchMap, catchError } from 'rxjs/operators';
 
 
 import { MoralisMainService, User } from './moralis-main.service';
@@ -51,6 +51,28 @@ export class MoralisUserService extends MoralisMainService {
     } else {
       return of(false)
     }
+  }
+
+  userLoginWithMetamask() {
+    return from(Moralis.authenticate()).pipe(
+      switchMap(() => {
+        this.updateUserInfo({
+          isLogged: LoggedStatus.logged
+        })
+
+        return this.getLoginStatus();
+      }),
+      catchError(err => { 
+        return throwError(() => err);
+      })
+    );
+  }
+
+  userLogOut() {
+    Moralis.User.logOut();
+    this.updateUserInfo({
+      isLogged: LoggedStatus.notLogged
+    });
   }
 
 }

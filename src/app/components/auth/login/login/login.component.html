@@ -1,1 +1,39 @@
-<p>login works!</p>
+<div class="login-form-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <div id="login-form">
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <form name="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+                <mat-form-field appearance="outline">
+                    <mat-label i18n>E-mail</mat-label>
+                    <input matInput type="text" formControlName="username" autocomplete="username" cdkFocusInitial>
+
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label i18n>password</mat-label>
+                    <input matInput autocomplete="current-password" [type]="hidePassword ? 'password' : 'text'"
+                        formControlName="password">
+                    <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' :
+                        'visibility'}}
+                    </mat-icon>
+                </mat-form-field>
+
+
+                <div class="buttons">
+                    <div class="button"><button mat-flat-button color="primary" type="submit"
+                            [class.spinner]="formSubmited" id="username" autocomplete="username"><span
+                                *ngIf="!formSubmited" i18n>log in</span><span
+                                *ngIf="formSubmited">&nbsp;</span></button></div>
+                    <div class="button"><button mat-button (click)="lostPassword()" type='button'
+                            autocomplete="current-password" i18n>lost password</button></div>
+                    <div class="button"><button mat-flat-button color="primary" (click)="connectMetamask()" type="button" i18n>login with metamask</button></div>
+                    <mat-divider></mat-divider>
+                    <div class="no-account-teaser" i18n>don't you have an account yet?</div>
+                    <div class="button"><button mat-stroked-button color="primary" (click)="signup()" type='button'
+                            i18n>sign
+                            up</button></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+.login-form-wrapper {
+    #login-form {
+        padding-top: 40px;
+        text-align: center;
+        //@include mat-elevation(16);
+
+        form {
+            width: 100%;
+            text-align: left;
+
+            mat-form-field {
+                width: 100%;
+            }
+        }
+        .buttons {
+            text-transform: uppercase;
+            button {
+                max-width: 400px;
+                width: 100%;
+                text-transform: uppercase;
+            }
+            > div.button {
+                padding-top: 6px;
+                padding-bottom: 8px;
+                text-align: center;
+            }
+
+            .no-account-teaser {
+                text-transform: capitalize;
+                text-align: center;
+                margin-top: 15px;
+                margin-bottom: 10px;
+                font-size: 14px;
+                line-height: 14px;
+                color: #070707;
+            }
+        }
+    }
+    #loader {
+        position: absolute;
+    }
+}

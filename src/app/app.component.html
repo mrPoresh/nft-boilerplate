@@ -3,15 +3,16 @@
 
         <mat-sidenav-container class="slide-menu-container" (backdropClick)="close()">
             <mat-sidenav #sidenav mode="over" fixedInViewport="true" disableClose>
-                <app-slide-menu [isVisible]="isOpened" (closeEvent)="close()"></app-slide-menu>
+                <app-slide-menu [_isLogged]="isLogged" [isVisible]="isOpened" (closeEvent)="close()"></app-slide-menu>
             </mat-sidenav>
 
             <mat-sidenav-content>
                 <div class="top-container" [ngClass]="(detectDeviceService.isDesktop()) ? 'desktop': 'mobile'" 
                     fxLayout="row" fxLayoutAlign="space-between center">
 
+                    <div *ngIf="isLogged.isLogged == -1 else logged"><app-login-button></app-login-button></div>
+                    <ng-template #logged><app-logout-button></app-logout-button></ng-template>
                     <app-slide-menu-button (clicked)="topClicked($event)"></app-slide-menu-button>
-                    <app-login-button></app-login-button>
 
                 </div>
 

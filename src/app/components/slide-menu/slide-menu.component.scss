@@ -1,0 +1,10 @@
+.slide-menu-body{
+
+    &.desktop {
+        min-width: 600px;
+    }
+
+    &.mobile {
+        min-width: 300px;
+    }
+}

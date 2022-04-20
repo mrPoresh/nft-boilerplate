@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { signupTrx } from 'src/app/router-translation.labels';
 
 @Component({
   selector: 'app-signup-button',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+
+  }
+
+  signup() {
+    this.router.navigate([this.router.url, signupTrx]);
   }
 
 }

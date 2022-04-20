@@ -1,7 +1,15 @@
-<div *ngIf="detectDeviceService.isDesktop() else mobile">
+<!-- <div *ngIf="detectDeviceService.isDesktop() else mobile">
     <h1>Desktop Menu</h1>
 </div>
 
 <ng-template #mobile>
     <h1>Mobile Menu</h1>
-</ng-template>
+</ng-template> -->
+
+<div class="slide-menu-body" [ngClass]="(detectDeviceService.isDesktop()) ? 'desktop': 'mobile'">
+
+    <div *ngIf="_isLogged.isLogged == -1 else logged"><app-signup-button></app-signup-button></div>
+
+    <ng-template #logged><app-logout-button></app-logout-button></ng-template>
+    
+</div>

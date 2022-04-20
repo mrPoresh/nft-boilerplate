@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MoralisUserService } from 'src/app/services/moralis/moralis-user.service';
+
 @Component({
   selector: 'app-logout-button',
   templateUrl: './logout-button.component.html',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoutButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public moralisService: MoralisUserService,
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+  }
+
+  logout() {
+    this.moralisService.userLogOut();
+    location.reload();
   }
 
 }

@@ -18,7 +18,7 @@ export class AppComponent extends BasePageComponent implements AfterViewInit {
   title = 'nft-boilerplate';
 
   isOpened: boolean = false;
-  isLogged?: UserInfo;
+  isLogged: UserInfo = { isLogged: -1 }
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
 

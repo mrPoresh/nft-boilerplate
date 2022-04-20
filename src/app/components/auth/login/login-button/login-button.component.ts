@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-/* import { loginTrx } from 'src/app/router-translation.labels'; */
+import { loginTrx } from 'src/app/router-translation.labels';
 
 @Component({
   selector: 'app-login-button',
@@ -19,7 +19,7 @@ export class LoginButtonComponent implements OnInit {
   }
 
   login() {
-    console.log("Login");
+    this.router.navigate([this.router.url, loginTrx]);
   }
 
 }

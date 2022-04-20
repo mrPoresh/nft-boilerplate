@@ -1,1 +1,7 @@
-<p>slide-menu works!</p>
+<div *ngIf="detectDeviceService.isDesktop() else mobile">
+    <h1>Desktop Menu</h1>
+</div>
+
+<ng-template #mobile>
+    <h1>Mobile Menu</h1>
+</ng-template>

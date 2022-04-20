@@ -1,1 +1,21 @@
-<p>confirm-dialog works!</p>
+<div class="lessons-list" *ngIf="dialogData.msg">
+    <div class="dialog-container">
+        <div class="confirm-icon-container">
+            <img src="assets/icons/icon-cancel.svg" />
+        </div>
+        <h2 i18n>Confirmation</h2>
+        <div class="content">
+            <p>
+                {{dialogData.msg}}
+            </p>
+        </div>
+        <div class="footer" fxLayout="column" fxLayoutAlign="center center">
+            <div class="buttons">
+                <button mat-stroked-button color="warn" (click)="closeDialog()" type='button'>close dialog</button>
+            </div>
+            <div class="buttons">
+                <button mat-flat-button color="primary" (click)="confirm()" type='button'>confirm</button>
+            </div>
+        </div>
+    </div>
+</div>

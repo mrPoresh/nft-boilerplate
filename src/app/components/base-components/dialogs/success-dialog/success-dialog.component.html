@@ -1,1 +1,41 @@
-<p>success-dialog works!</p>
+<div class="dialog-wrapper" *ngIf="successData.msg else remindpassword">
+    <div class="dialog-container" fxLayoutAlign="space-between center" fxLayout="column">
+        <div fxLayoutAlign="center start" class="success-icon-container">
+            <!-- <ng-lottie class="animation-container" containerClass="succeeded-container" width="103px" height="103px"
+                [options]="options"></ng-lottie> -->
+        </div>
+        <h2 *ngIf="successData.title">{{successData.title}}</h2>
+        <div class="content">
+            <p>
+                {{successData.msg}}
+            </p>
+        </div>
+        <div class="footer" fxLayout="row" fxLayoutAlign="center center">
+            <div class="buttons">
+                <button mat-flat-button color="primary" (click)="closeDialog()" type='button'>OK</button>
+            </div>
+        </div>
+    </div>
+    <app-close-dialog-button (closeEvent)="closeDialog()"></app-close-dialog-button>
+</div>
+
+
+<ng-template #remindpassword>
+    <div class="dialog-wrapper">
+        <div class="dialog-container" fxLayoutAlign="space-between center" fxLayout="column">
+            <div fxLayoutAlign="center start" class="success-icon-container">
+<!--                 <ng-lottie class="animation-container" containerClass="succeeded-container" width="103px" height="103px"
+                    [options]="options"></ng-lottie> -->
+            </div>
+            <div class="content">
+                <p i18n>Your request was correctly updated.</p>
+            </div>
+            <div class="footer" fxLayout="row" fxLayoutAlign="center center">
+                <div class="buttons">
+                    <button mat-flat-button color="primary" (click)="closeDialog()" type='button'>OK</button>
+                </div>
+            </div>
+        </div>
+        <app-close-dialog-button (closeEvent)="closeDialog()"></app-close-dialog-button>
+    </div>
+</ng-template>

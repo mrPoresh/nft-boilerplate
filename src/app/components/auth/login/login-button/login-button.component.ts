@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+/* import { loginTrx } from 'src/app/router-translation.labels'; */
 
 @Component({
   selector: 'app-login-button',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+  }
+
+  login() {
+    console.log("Login");
   }
 
 }

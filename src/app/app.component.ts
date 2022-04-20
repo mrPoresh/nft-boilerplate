@@ -1,28 +1,62 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { takeUntil } from 'rxjs/operators';
 
-import { Moralis } from 'moralis';
-import { environment } from 'src/environments/environment';
+import { BasePageComponent } from './components/base-components/base-page/base-page.component';
+import { topMenuAction } from './components/slide-menu/slide-menu-button/slide-menu-button.component';
+import { DetectDeviceService } from './services/utils/detect-device.service'
+import { MoralisUserService } from './services/moralis/moralis-user.service';
+import { UserInfo, LoggedStatus } from './services/moralis/user-login.models';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent extends BasePageComponent implements AfterViewInit {
   title = 'nft-boilerplate';
 
+  isOpened: boolean = false;
+  isLogged?: UserInfo;
+
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  constructor(
+    public detectDeviceService: DetectDeviceService,
+    public moralisService: MoralisUserService
+  ) { super() }
+
   ngOnInit() {
-    this.init();
+    this.moralisService.init().then(() => 
+      this.moralisService.requestCheckUserInfo().pipe(takeUntil(this.unsubscribe)).subscribe(
+        res => {this.isLogged = res; console.log("isLogged ->", this.isLogged);}
+      )
+    );
   }
 
-  async init() {
-    await Moralis.start({
-      appId: environment.moralis.appId,
-      serverUrl: environment.moralis.serverUrl,
-    });
+  ngAfterViewInit() {
+    if (!!this.sidenav) {
+      this.sidenav.openedStart.pipe(takeUntil(this.unsubscribe)).subscribe(() =>
+        this.isOpened = true
+      )
+      this.sidenav.closedStart.pipe(takeUntil(this.unsubscribe)).subscribe(() =>
+        this.isOpened = false
+      )
+    }
+  }
 
-    console.log("App Id ->", environment.moralis.appId);
-    console.log("Server ->", environment.moralis.serverUrl);
+  topClicked(value: topMenuAction) {
+    if (value === topMenuAction.TOP) {
+      this.sidenav.open();
+    }
+    else if (value === topMenuAction.BACK) {
+      this.close();
+    }
+  }
+
+  close() {
+    this.sidenav.close();
   }
 
 }

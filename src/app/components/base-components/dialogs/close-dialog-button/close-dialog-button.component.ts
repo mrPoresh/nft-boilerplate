@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-close-dialog-button',
@@ -9,7 +9,16 @@ export class CloseDialogButtonComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  @Output() closeEvent = new EventEmitter<string>();
+  @Input() customClass: string = '';
+
+  callLinkClickedParent(url?: string): void {
+    if (url) this.closeEvent.next(url);
+    else this.closeEvent.next("../");
+  }
+
+  ngOnInit() {
+    
   }
 
 }

@@ -1,1 +1,10 @@
-<p>slide-menu-button works!</p>
+<div class="slide-menu-button">
+    <button mat-icon-button (click)="openMenu()" *ngIf="!isShowBackButton else showbackbutton">
+      <mat-icon class="white-icon">menu</mat-icon>
+    </button>
+    <ng-template #showbackbutton>
+        <button mat-icon-button (click)="goBack()" >
+            <mat-icon class="white-icon">arrow_back_ios</mat-icon>
+        </button>
+    </ng-template>
+</div>

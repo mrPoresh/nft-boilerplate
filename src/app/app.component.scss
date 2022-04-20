@@ -1,0 +1,41 @@
+.full-wrapper{
+
+    .body-wrapper{
+        width: 100%;
+        margin: 0 auto;
+
+        &.desktop {
+            max-width: 100%;
+        }
+    
+        &.mobile {
+            max-width: 940px;
+        }
+
+        .content-container {
+            padding-top: 60px;
+            /* min-height: 600px; */
+        }
+
+    }
+
+    .top-container {
+        position: fixed;
+        top: 0px;
+        width: 100vw;
+
+        height: 60px;
+        background-color: #cccccc;
+        box-shadow: 0 0 10px #000000;
+
+        &.mobile {
+            max-width: 940px;
+        }
+
+        &.desktop {
+            max-width: 100%;
+        }
+
+    }
+
+}

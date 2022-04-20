@@ -1,3 +1,27 @@
-<h1>Grind</h1>
+<div class="full-wrapper">
+    <div class="body-wrapper" [ngClass]="(detectDeviceService.isDesktop()) ? 'desktop': 'mobile'">
 
-<router-outlet></router-outlet>
+        <mat-sidenav-container class="slide-menu-container" (backdropClick)="close()">
+            <mat-sidenav #sidenav mode="over" fixedInViewport="true" disableClose>
+                <app-slide-menu [isVisible]="isOpened" (closeEvent)="close()"></app-slide-menu>
+            </mat-sidenav>
+
+            <mat-sidenav-content>
+                <div class="top-container" [ngClass]="(detectDeviceService.isDesktop()) ? 'desktop': 'mobile'" 
+                    fxLayout="row" fxLayoutAlign="space-between center">
+
+                    <app-slide-menu-button (clicked)="topClicked($event)"></app-slide-menu-button>
+                    <app-login-button></app-login-button>
+
+                </div>
+
+                <div class="content-container">
+                    <router-outlet></router-outlet>
+                </div>
+
+                <app-footer></app-footer>
+            </mat-sidenav-content>
+
+        </mat-sidenav-container>
+    </div>
+</div>

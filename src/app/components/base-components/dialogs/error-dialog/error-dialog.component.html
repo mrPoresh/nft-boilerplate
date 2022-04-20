@@ -1,1 +1,40 @@
-<p>error-dialog works!</p>
+<div class="dialog-wrapper" *ngIf="errorData.msg else remindpassword">
+    <div class="dialog-container">
+        <div class="error-icon-container">
+            <img src="assets/icons/icon-error.svg" />
+        </div>
+        <div class="content">
+            <h2 *ngIf="errorData.title">{{errorData.title}}</h2>
+            <p>
+                {{errorData.msg}}
+            </p>
+        </div>
+        <div class="footer" fxLayout="row" fxLayoutAlign="center center">
+            <div class="buttons" fxLayoutAlign="center center">
+                <button mat-flat-button color="warn" (click)="closeDialog()" type='button'>close dialog</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #remindpassword>
+    <div class="dialog-wrapper">
+        <div class="dialog-container">
+            <div class="error-icon-container">
+                <img src="assets/icons/icon-error.svg" />
+            </div>
+            <div class="content">
+                <h2>Sorry something went wrong</h2>
+                <p>
+                    Please try again later or contact support.
+                </p>
+            </div>
+            <div class="footer" fxLayout="row" fxLayoutAlign="center center">
+                <div class="buttons" fxLayoutAlign="center center">
+                    <button mat-flat-button color="warn" (click)="closeDialog()" type='button'>close dialog</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

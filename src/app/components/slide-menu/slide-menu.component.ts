@@ -1,15 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+
+import { BasePageComponent } from '../base-components/base-page/base-page.component';
+import { DetectDeviceService } from 'src/app/services/utils/detect-device.service';
 
 @Component({
   selector: 'app-slide-menu',
   templateUrl: './slide-menu.component.html',
   styleUrls: ['./slide-menu.component.scss']
 })
-export class SlideMenuComponent implements OnInit {
+export class SlideMenuComponent extends BasePageComponent implements OnInit {
 
-  constructor() { }
+  _isVisible: boolean = false;
+  childData: any;
 
-  ngOnInit(): void {
+  @Input() set isVisible(value: boolean) {
+    this._isVisible = value;
+  }
+
+  @Output() closeEvent = new EventEmitter();
+
+  constructor(
+    public detectDeviceService: DetectDeviceService
+  ) { super() }
+
+  ngOnInit() {
+    
+  }
+
+  get isVisible(): boolean {
+    return this._isVisible;
+  }
+
+  callLinkClickedParent() {
+    this.closeEvent.next("");
   }
 
 }

@@ -1,0 +1,41 @@
+<div class="step-one-body" fxLayoutAdivgn="center center">
+
+    <div id="step-one-form">
+        <form name="registerForm1" [formGroup]="registerForm1">
+            <div fxLayout="column" fxLayoutAlign="center center">
+
+                <mat-form-field class="email" appearance="outline">
+                    <mat-label i18n>Email</mat-label>
+                    <!-- <mat-error *ngIf="registerForm1.get('username').hasError('required')" i18n>Please enter your email.</mat-error>
+                    <mat-error *ngIf="registerForm1.get('username').hasError('email')" i18n>Please provide a valid email address.</mat-error>
+                    <mat-error *ngIf="registerForm1.get('username').errors.serverError">
+                        {{ registerForm1.get('username').errors?.serverError }}
+                    </mat-error> -->
+                    <input matInput type="text" formControlName="email">
+                </mat-form-field>
+
+                <span fxFlex></span>
+
+                <mat-form-field class="password" appearance="outline">
+                    <mat-label i18n>Password</mat-label>
+                    <input matInput  [type]="hidePassword ? 'password' : 'text'"  formControlName="password">
+                    <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    <!-- <mat-error *ngIf="registerForm1.get('password')?.hasError('required')" i18n>Please enter your password.</mat-error>
+                    <mat-error *ngIf="registerForm1.get('password')?.hasError('minlength')" i18n>Your password is too short.</mat-error>
+                    <mat-error *ngIf="registerForm1.get('password')?.hasError('pattern')">
+                        {{registerForm1.get('password').errors.pattern.msg}}
+                    </mat-error>
+                    <mat-error *ngIf="registerForm1.get('password')?.errors?.serverError">
+                        {{ registerForm1.get('password').errors?.serverError }}
+                    </mat-error> -->
+                </mat-form-field>
+
+                <div class="buttons">
+                    <div><button mat-flat-button color="primary" type="submit" i18n>submit</button></div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -7,8 +7,10 @@
         </ng-container>
     </div>
 
-    <app-signup-step-one *ngIf="!isCompleted1"></app-signup-step-one>
+    <app-signup-step-one *ngIf="!isCompleted1" (isCompleted)="completeStepOne($event)"></app-signup-step-one>
 
-    <app-signup-step-two *ngIf="isCompleted1 && !isCompleted2"></app-signup-step-two>
+    <app-signup-step-two *ngIf="isCompleted1 && !isCompleted2" (isCompleted)="completeStepOne($event)"></app-signup-step-two>
+
+    <app-signup-step-three *ngIf="isCompleted2" (isCompleted)="completeStepThree($event)"></app-signup-step-three>
 
 </div>

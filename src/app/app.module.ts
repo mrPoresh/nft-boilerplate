@@ -27,6 +27,7 @@ import { SignupButtonComponent } from './components/auth/signup/signup-button/si
 import { TestPageComponent } from './components/base-components/test-page/test-page.component';
 import { SignupStepOneComponent } from './components/auth/signup/signup-step-one/signup-step-one.component';
 import { SignupStepTwoComponent } from './components/auth/signup/signup-step-two/signup-step-two.component';
+import { SignupStepThreeComponent } from './components/auth/signup/signup-step-three/signup-step-three.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { SignupStepTwoComponent } from './components/auth/signup/signup-step-two
     SignupButtonComponent,
     TestPageComponent,
     SignupStepOneComponent,
-    SignupStepTwoComponent
+    SignupStepTwoComponent,
+    SignupStepThreeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 <div class="step-one-body" fxLayoutAdivgn="center center">
 
     <div id="step-one-form">
-        <form name="registerForm1" [formGroup]="registerForm1">
+        <form name="registerForm1" [formGroup]="registerForm1" (ngSubmit)="onSubmit(registerForm1)">
             <div fxLayout="column" fxLayoutAlign="center center">
 
                 <mat-form-field class="email" appearance="outline">

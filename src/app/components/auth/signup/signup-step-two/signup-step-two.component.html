@@ -1,1 +1,26 @@
-<p>signup-step-two works!</p>
+<div class="step-body" fxLayoutAdivgn="center center">
+    <div class="signup-2-form-wrapper">
+        <div id="signup-2-form">
+
+            <form name="registerForm2" [formGroup]="registerForm2" (ngSubmit)="onSubmit(registerForm2)">
+
+                <input type="file" (change)="onFileChange($event)">
+
+                <mat-form-field class="email" appearance="outline">
+                    <mat-label i18n>Username</mat-label>
+                    <input matInput type="text" formControlName="username">
+                </mat-form-field>
+
+                <mat-form-field class="email" appearance="outline">
+                    <mat-label i18n>ETH Address</mat-label>
+                    <input matInput type="text" formControlName="ethAddress">
+                </mat-form-field>
+
+                <div class="buttons">
+                    <div><button mat-flat-button color="primary" type="submit" i18n>submit</button></div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

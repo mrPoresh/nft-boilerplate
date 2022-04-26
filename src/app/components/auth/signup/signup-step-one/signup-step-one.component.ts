@@ -1,8 +1,10 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 
 import { BasePageComponentWithDialogs } from 'src/app/components/base-components/base-page/base-page.component';
+import { MoralisUserService } from 'src/app/services/moralis/moralis-user.service';
+import { takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-signup-step-one',
@@ -23,12 +25,29 @@ export class SignupStepOneComponent extends BasePageComponentWithDialogs impleme
 
   constructor(
     public errorDialog: MatDialog,
-    private formBuilder: FormBuilder,
+    public formBuilder: FormBuilder,
+    public moralisService: MoralisUserService,
   ) { 
     super(errorDialog) 
   }
 
   ngOnInit() {
+
+  }
+
+  onSubmit(registerForm1: FormGroup) {
+    if (this.formSubmited || !this.registerForm1.valid) return;
+    this.moralisService.postRegistrationStepAddUser(registerForm1).pipe(takeUntil(this.unsubscribe)).subscribe({
+      next: res => {
+        console.log("Step 1 Res ->", res);
+      },
+      error: error => {
+        this.openErrorDialog();
+      },
+      complete: () => {
+        this.isCompleted.next(true);
+      }
+    })
 
   }
 

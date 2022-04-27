@@ -4,12 +4,13 @@
         <ng-container [ngSwitch]="selectedIndex">
             <p *ngSwitchCase="0" i18n>Account Data</p>
             <p *ngSwitchCase="1" i18n>User Info</p>
+            <p *ngSwitchCase="2" i18n>User Avatar</p>
         </ng-container>
     </div>
 
     <app-signup-step-one *ngIf="!isCompleted1" (isCompleted)="completeStepOne($event)"></app-signup-step-one>
 
-    <app-signup-step-two *ngIf="isCompleted1 && !isCompleted2" (isCompleted)="completeStepOne($event)"></app-signup-step-two>
+    <app-signup-step-two *ngIf="isCompleted1 && !isCompleted2" (isCompleted)="completeStepTwo($event)"></app-signup-step-two>
 
     <app-signup-step-three *ngIf="isCompleted2" (isCompleted)="completeStepThree($event)"></app-signup-step-three>
 

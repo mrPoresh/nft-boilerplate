@@ -13,7 +13,7 @@ import { MoralisUserService } from 'src/app/services/moralis/moralis-user.servic
 })
 export class SignupStepTwoComponent extends BasePageComponentWithDialogs implements OnInit {
 
-  registerForm2 = this.formBuilder.group({
+  public registerForm2 = this.formBuilder.group({
     avatarFile: [],
     avatarName: [''],
     username: ['', [Validators.required]],

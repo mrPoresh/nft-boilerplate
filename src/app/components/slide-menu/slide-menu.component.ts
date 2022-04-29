@@ -1,4 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { MatExpansionPanel } from '@angular/material/expansion';
 
 import { BasePageComponent } from '../base-components/base-page/base-page.component';
 import { DetectDeviceService } from 'src/app/services/utils/detect-device.service';
@@ -7,7 +8,8 @@ import { UserInfo } from 'src/app/services/moralis/user-login.models';
 @Component({
   selector: 'app-slide-menu',
   templateUrl: './slide-menu.component.html',
-  styleUrls: ['./slide-menu.component.scss']
+  styleUrls: ['./slide-menu.component.scss'],
+  viewProviders: [MatExpansionPanel]
 })
 export class SlideMenuComponent extends BasePageComponent implements OnInit {
 
@@ -17,18 +19,18 @@ export class SlideMenuComponent extends BasePageComponent implements OnInit {
   @Input() set isVisible(value: boolean) {
     this._isVisible = value;
   }
-
   @Input() _isLogged!: UserInfo;
-
   @Output() closeEvent = new EventEmitter();
 
   constructor(
-    public detectDeviceService: DetectDeviceService
+    public detectDeviceService: DetectDeviceService,
   ) { super() }
 
   ngOnInit() {
     
   }
+
+  /* --------------------------------------------- */
 
   get isVisible(): boolean {
     return this._isVisible;
@@ -36,6 +38,12 @@ export class SlideMenuComponent extends BasePageComponent implements OnInit {
 
   callLinkClickedParent() {
     this.closeEvent.next("");
+  }
+
+  /* --------------------------------------------- */
+
+  testClick() {
+    console.log("Test click")
   }
 
 }

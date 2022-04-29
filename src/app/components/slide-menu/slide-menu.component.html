@@ -6,10 +6,111 @@
     <h1>Mobile Menu</h1>
 </ng-template> -->
 
-<div class="slide-menu-body" [ngClass]="(detectDeviceService.isDesktop()) ? 'desktop': 'mobile'">
+<div class="slide-menu-body" [ngClass]="(detectDeviceService.isDesktop()) ? 'desktop': 'mobile'" fxLayout="column" fxLayoutAlign="start center">
 
-    <div *ngIf="_isLogged.isLogged == -1 else logged"><app-signup-button></app-signup-button></div>
+    <mat-accordion class="main-menu" multi>
 
-    <ng-template #logged><app-logout-button></app-logout-button></ng-template>
+        <mat-expansion-panel class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <mat-icon class="white-icon">map</mat-icon>
+                    Explore
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-nav-list>
+                <a mat-list-item (click)="testClick()">All NFTs</a>
+                <a mat-list-item (click)="testClick()">Solana NFTs</a>
+                <a mat-list-item (click)="testClick()">Art</a>
+                <a mat-list-item (click)="testClick()">Photography</a>
+                <a mat-list-item (click)="testClick()">Sports</a>
+                <a mat-list-item (click)="testClick()">Virtual Worlds</a>
+            </mat-nav-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <mat-icon class="white-icon">bar_chart</mat-icon>
+                    Stats
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-nav-list>
+                <a mat-list-item (click)="testClick()">Rankings</a>
+                <a mat-list-item (click)="testClick()">Activity</a>
+            </mat-nav-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <mat-icon class="white-icon">filter_none</mat-icon>
+                    Resources
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-nav-list>
+                <a mat-list-item (click)="testClick()">Help Center</a>
+                <a mat-list-item (click)="testClick()">Docs</a>
+            </mat-nav-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel *ngIf="_isLogged.isLogged == 1" class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <mat-icon class="white-icon">account_circle</mat-icon>
+                    Account
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-nav-list>
+                <a mat-list-item (click)="testClick()">Profie</a>
+                <a mat-list-item (click)="testClick()">Favorites</a>
+                <a mat-list-item (click)="testClick()">Watchlist</a>
+                <a mat-list-item (click)="testClick()">My Collections</a>
+            </mat-nav-list>
+
+            <mat-expansion-panel class="mat-elevation-z0 medium-menu">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon class="white-icon">settings</mat-icon>
+                        Account Settings
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+    
+                <mat-nav-list>
+                    <a mat-list-item (click)="testClick()">Profie</a>
+                    <a mat-list-item (click)="testClick()">Notifications</a>
+                    <a mat-list-item (click)="testClick()">Offers</a>
+                    <a mat-list-item (click)="testClick()">Payment</a>
+                    <a mat-list-item (click)="testClick()">Account Support</a>
+                    <a mat-list-item (click)="testClick()">Earnings</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel *ngIf="_isLogged.isLogged == 1" class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <mat-icon class="white-icon">account_balance_wallet</mat-icon>
+                    Wallet
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <h1>Total Balance: 1000000</h1>
+
+        </mat-expansion-panel>
+        
+
+    </mat-accordion>
+
+    <div *ngIf="_isLogged.isLogged == -1 else logged">
+        <app-signup-button></app-signup-button>
+    </div>
+
+    <ng-template #logged>
+        <app-logout-button></app-logout-button>
+    </ng-template>
     
 </div>

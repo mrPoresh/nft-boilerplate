@@ -8,109 +8,104 @@
 
 <div class="slide-menu-body" [ngClass]="(detectDeviceService.isDesktop()) ? 'desktop': 'mobile'" fxLayout="column" fxLayoutAlign="start center">
 
-    <mat-accordion class="main-menu" multi>
+    <span class="empty"></span>
 
-        <mat-expansion-panel class="mat-elevation-z0">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    <mat-icon class="white-icon">map</mat-icon>
-                    Explore
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <mat-nav-list>
-                <a mat-list-item (click)="testClick()">All NFTs</a>
-                <a mat-list-item (click)="testClick()">Solana NFTs</a>
-                <a mat-list-item (click)="testClick()">Art</a>
-                <a mat-list-item (click)="testClick()">Photography</a>
-                <a mat-list-item (click)="testClick()">Sports</a>
-                <a mat-list-item (click)="testClick()">Virtual Worlds</a>
-            </mat-nav-list>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel class="mat-elevation-z0">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    <mat-icon class="white-icon">bar_chart</mat-icon>
-                    Stats
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <mat-nav-list>
-                <a mat-list-item (click)="testClick()">Rankings</a>
-                <a mat-list-item (click)="testClick()">Activity</a>
-            </mat-nav-list>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel class="mat-elevation-z0">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    <mat-icon class="white-icon">filter_none</mat-icon>
-                    Resources
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <mat-nav-list>
-                <a mat-list-item (click)="testClick()">Help Center</a>
-                <a mat-list-item (click)="testClick()">Docs</a>
-            </mat-nav-list>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel *ngIf="_isLogged.isLogged == 1" class="mat-elevation-z0">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    <mat-icon class="white-icon">account_circle</mat-icon>
-                    Account
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <mat-nav-list>
-                <a mat-list-item (click)="testClick()">Profie</a>
-                <a mat-list-item (click)="testClick()">Favorites</a>
-                <a mat-list-item (click)="testClick()">Watchlist</a>
-                <a mat-list-item (click)="testClick()">My Collections</a>
-            </mat-nav-list>
-
-            <mat-expansion-panel class="mat-elevation-z0 medium-menu">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <mat-icon class="white-icon">settings</mat-icon>
-                        Account Settings
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-    
-                <mat-nav-list>
-                    <a mat-list-item (click)="testClick()">Profie</a>
-                    <a mat-list-item (click)="testClick()">Notifications</a>
-                    <a mat-list-item (click)="testClick()">Offers</a>
-                    <a mat-list-item (click)="testClick()">Payment</a>
-                    <a mat-list-item (click)="testClick()">Account Support</a>
-                    <a mat-list-item (click)="testClick()">Earnings</a>
-                </mat-nav-list>
-            </mat-expansion-panel>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel *ngIf="_isLogged.isLogged == 1" class="mat-elevation-z0">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    <mat-icon class="white-icon">account_balance_wallet</mat-icon>
-                    Wallet
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <h1>Total Balance: 1000000</h1>
-
-        </mat-expansion-panel>
-        
-
-    </mat-accordion>
-
-    <div *ngIf="_isLogged.isLogged == -1 else logged">
-        <app-signup-button></app-signup-button>
+    <div class="main-menu" *ngIf="!_touchedMain else secondMenu">
+        <button mat-raised-button (click)="touchedMain()" (click)="touchedExplore()">
+            <mat-icon>explore</mat-icon>Explore<mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+        <button mat-raised-button (click)="touchedMain()" (click)="touchedStats()">
+            <mat-icon>equalizer</mat-icon>Stats<mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+        <button mat-raised-button (click)="touchedMain()" (click)="touchedResources()">
+            <mat-icon>smartphone</mat-icon>Resources<mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+        <button *ngIf="_isLogged.isLogged == 1" mat-raised-button (click)="touchedMain()" (click)="touchedAccount()">
+            <mat-icon>account_circle</mat-icon>Account<mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+        <button *ngIf="_isLogged.isLogged == 1" mat-raised-button>
+            <mat-icon>wallet</mat-icon>My Wallet
+        </button>
     </div>
 
-    <ng-template #logged>
-        <app-logout-button></app-logout-button>
+    <ng-template #secondMenu>
+        <div class="menu" *ngIf="_touchedExplore">
+            <button mat-raised-button (click)="touchedMain()" (click)="touchedExplore()">
+                <mat-icon>keyboard_arrow_left</mat-icon>Explore
+            </button>
+        </div>
+
+        <div class="menu" *ngIf="_touchedStats">
+            <button mat-raised-button (click)="touchedMain()" (click)="touchedStats()">
+                <mat-icon>keyboard_arrow_left</mat-icon>Stats
+            </button>
+        </div>
+
+        <div class="menu" *ngIf="_touchedResources">
+            <button mat-raised-button (click)="touchedMain()" (click)="touchedResources()">
+                <mat-icon>keyboard_arrow_left</mat-icon>Resources
+            </button>
+        </div>
+
+        <div class="menu" *ngIf="_touchedResources">
+            <button mat-raised-button (click)="touchedMain()" (click)="touchedResources()">
+                <mat-icon>keyboard_arrow_left</mat-icon>Resources
+            </button>
+        </div>
+
+        <div class="menu" *ngIf="_touchedAccount">
+            <button mat-raised-button (click)="touchedMain()" (click)="touchedAccount()">
+                <mat-icon>keyboard_arrow_left</mat-icon>Account
+            </button>
+
+            <mat-divider></mat-divider>
+
+            <button mat-flat-button (click)="accountNavigate()">Profile</button>
+            <button mat-flat-button>Favorites</button>
+            <button mat-flat-button>Watchlist</button>
+            <button mat-flat-button>My Collections</button>
+            <button mat-flat-button>Account Settings</button>
+            <button mat-flat-button (click)="logOut()">Log Out</button>
+            
+        </div>
+
+        <div class="menu" *ngIf="_touchedLogin">
+            <button mat-flat-button (click)="touchedMain()" (click)="touchedLogin()">
+                <mat-icon>keyboard_arrow_left</mat-icon>My wallet
+            </button>
+
+            <mat-divider></mat-divider>
+
+            <div class="text-box">
+                <p>Connect with one of our avaliable wallet providers or create a new one.</p>
+            </div>
+
+            <mat-card color="warm" class="wallets-card">
+                <mat-card-content>
+                    <button color="primary" mat-raised-button>
+                        WalletConnect
+                    </button>
+                    <mat-divider></mat-divider>
+                    <button color="primary" mat-raised-button (click)="connectMetamask()">
+                        Metamask
+                    </button>
+                    <mat-divider></mat-divider>
+                    <button color="primary" mat-raised-button>
+                        Coinbase Wallet
+                    </button>
+                    <mat-divider></mat-divider>
+                    <button color="primary" mat-raised-button>
+                        Phantom
+                    </button>
+                </mat-card-content>
+            </mat-card>
+        </div>
     </ng-template>
-    
+
+    <div class="bottom-menu" *ngIf="_isLogged.isLogged == -1 && !_touchedMain">
+        <button color="primary" class="button-wallet" mat-raised-button (click)="touchedMain()" (click)="touchedLogin()">
+            Connect Wallet
+        </button>
+    </div>
+
 </div>

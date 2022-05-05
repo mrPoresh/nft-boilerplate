@@ -1,0 +1,47 @@
+.account-body{
+    min-height: 600px;
+    width: 100%;
+}
+
+.main-body {
+    width: 100%;
+    height: 500px;
+
+    .user-banner {
+        height: 200px;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .user-body {
+        height: 300px;
+        box-shadow: 0 0 10px #000000;
+
+        .user-space {
+            height: 75px;
+
+            h1 {
+                color: #000;
+            }
+        }
+    }
+}
+
+.user-avatar img {
+    position: absolute;
+    
+    top: 190px;
+    left: 112px;
+    
+
+    object-fit: cover;
+    border-radius:50%;
+/*     border-: 50px;
+    border-color: #000; */
+
+    width: 150px;
+    height: 150px;
+}
+
+mat-tab-group {
+    padding-top: 50px;
+}

@@ -32,7 +32,10 @@ export class AppComponent extends BasePageComponent implements AfterViewInit {
       this.moralisService.requestCheckUserInfo().pipe(takeUntil(this.unsubscribe)).subscribe(
         res => {this.isLogged = res; console.log("isLogged ->", this.isLogged);}
       )
-    );
+    ).then(() => 
+      this.moralisService.foo().pipe(takeUntil(this.unsubscribe)).subscribe(
+        res => console.log("Responce ->", res)
+      ));
   }
 
   ngAfterViewInit() {
@@ -51,7 +54,7 @@ export class AppComponent extends BasePageComponent implements AfterViewInit {
       this.sidenav.open();
     }
     else if (value === topMenuAction.BACK) {
-      this.close();
+      this.sidenav.close();
     }
   }
 

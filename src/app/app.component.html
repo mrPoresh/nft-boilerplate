@@ -1,20 +1,18 @@
 <div class="full-wrapper">
     <div class="body-wrapper" [ngClass]="(detectDeviceService.isDesktop()) ? 'desktop': 'mobile'">
 
+        <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+            <span>My Application</span>
+            <app-slide-menu-button (clicked)="topClicked($event)"></app-slide-menu-button>
+        </mat-toolbar>
+
+
         <mat-sidenav-container class="slide-menu-container" (backdropClick)="close()">
-            <mat-sidenav #sidenav mode="over" fixedInViewport="true" disableClose>
+            <mat-sidenav #sidenav  fixedInViewport="true" disableClose>
                 <app-slide-menu [_isLogged]="isLogged" [isVisible]="isOpened" (closeEvent)="close()"></app-slide-menu>
             </mat-sidenav>
 
             <mat-sidenav-content>
-                <div class="top-container" [ngClass]="(detectDeviceService.isDesktop()) ? 'desktop': 'mobile'" 
-                    fxLayout="row" fxLayoutAlign="space-between center">
-
-                    <div *ngIf="isLogged.isLogged == -1 else logged"><app-login-button></app-login-button></div>
-                    <ng-template #logged><app-logout-button></app-logout-button></ng-template>
-                    <app-slide-menu-button (clicked)="topClicked($event)"></app-slide-menu-button>
-
-                </div>
 
                 <div class="content-container">
                     <router-outlet></router-outlet>

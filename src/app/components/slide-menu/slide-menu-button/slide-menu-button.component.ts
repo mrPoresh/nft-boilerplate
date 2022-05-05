@@ -23,7 +23,7 @@ export class SlideMenuButtonComponent extends BasePageComponent implements OnIni
   @Output() clicked = new EventEmitter<topMenuAction>();
 
   ngOnInit() {
-    this.toggleBackService.attach().pipe(takeUntil(this.unsubscribe)).subscribe((showBack) => {
+    this.toggleBackService.attach().pipe(takeUntil(this.unsubscribe)).subscribe((showBack:boolean) => {
       if (showBack){
         this.isShowBackButton = true;
       }
@@ -35,10 +35,12 @@ export class SlideMenuButtonComponent extends BasePageComponent implements OnIni
 
   openMenu(){
     this.clicked.next(topMenuAction.TOP);
+    this.toggleBackService.showBack();
   }
 
   goBack(){
     this.clicked.next(topMenuAction.BACK);
+    this.toggleBackService.hideBack();
   }
 
 }

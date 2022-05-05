@@ -28,6 +28,8 @@ import { TestPageComponent } from './components/base-components/test-page/test-p
 import { SignupStepOneComponent } from './components/auth/signup/signup-step-one/signup-step-one.component';
 import { SignupStepTwoComponent } from './components/auth/signup/signup-step-two/signup-step-two.component';
 import { SignupStepThreeComponent } from './components/auth/signup/signup-step-three/signup-step-three.component';
+import { AccountPageComponent } from './components/user/account-page/account-page.component';
+import { HomePageComponent } from './components/base-components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { SignupStepThreeComponent } from './components/auth/signup/signup-step-t
     TestPageComponent,
     SignupStepOneComponent,
     SignupStepTwoComponent,
-    SignupStepThreeComponent
+    SignupStepThreeComponent,
+    AccountPageComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,7 @@ import { SignupStepThreeComponent } from './components/auth/signup/signup-step-t
     FlexLayoutModule,
     SharedMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

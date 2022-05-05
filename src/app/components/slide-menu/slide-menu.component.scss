@@ -1,7 +1,12 @@
+.empty {
+    height: 70px;
+    width: 100%;
+}
+
 .slide-menu-body{
 
     &.desktop {
-        min-width: 600px;
+        min-width: 600px;   //!
     }
 
     &.mobile {
@@ -9,12 +14,23 @@
     }
 }
 
+
 .main-menu {
-    width: 300px;
+    width: 100%;
 }
 
-.medium-menu {
-    width: 275px;
+.menu {
+    width: 100%;
+}
+
+.bottom-menu {
+    width: 100%;
+    bottom: 30px;
+    position: fixed;
+}
+
+/* mat-expansion-panel {
+    padding-top: 15px;
 }
 
 mat-panel-title {
@@ -27,4 +43,51 @@ mat-nav-list {
 
 mat-icon {
     padding-right: 5px;
+} */
+
+button {
+    width: 90%;
+    height: 50px;
+    margin-top: 15px;
+    margin-left: 5%;
+    text-align: left;
+    font-size: 18px;
+}
+
+.button-wallet {
+    width: 90%;
+    height: 50px;
+    margin-top: 15px;
+    margin-left: 5%;
+    text-align: center;
+    font-size: 18px;
+}
+
+mat-icon {
+    padding-right: 15px;
+}
+
+.button-icon {
+    height: 5px;
+    width: 100px;
+}
+
+
+mat-divider {
+    margin-top: 10px;
+}
+
+mat-card {
+    margin: 10px;
+}
+
+
+.text-box {
+    width: 100%;
+    height: 150px;
+
+    p {
+        font-size: 16px;
+        padding: 15px;
+    }
 }

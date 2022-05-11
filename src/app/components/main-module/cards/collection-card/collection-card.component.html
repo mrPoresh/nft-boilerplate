@@ -1,0 +1,10 @@
+<div class="card-wrapper" >
+    <mat-card class="card" (click)="onClick(NFTData)">
+            <img src={{NFTData.collectionBackground}} class="card-img-top">
+            <mat-card-header>
+                <img mat-card-avatar src={{NFTData.collectionAvatar}}>
+                <mat-card-title>{{NFTData.collectionName}}</mat-card-title>
+                <mat-card-subtitle>by some owner of collection</mat-card-subtitle>
+            </mat-card-header>
+    </mat-card>
+</div>

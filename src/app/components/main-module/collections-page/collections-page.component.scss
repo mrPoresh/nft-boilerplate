@@ -1,0 +1,95 @@
+.collection-page-body {
+    width: 100%;
+    min-height: 1200px;
+
+    .collection-page-head {
+        width: 100%;
+
+        .collection-images {
+            height: 200px;
+
+            .banner {
+                width: 100%;
+                height: 200px;
+                background-color: #dbdbdb;
+/*                 width: 375px;
+                
+                img {
+                    width: 100%;
+                } */
+            }
+
+            .avatar {
+                img {
+                    position: absolute;
+                    top: 200px;
+    
+                    object-fit: cover;
+                    border-radius: 50%;
+                    border: 5px solid #303030;
+                    box-shadow: 0 0 10px #000000;
+                    width: 150px;
+                    height: 150px;
+    
+                }
+            }
+
+        }
+
+        .collection-data {
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 0 10px #000000;
+
+            .collection-name {
+                margin-top: 100px;
+                height: 50px;
+
+                h1 {
+                    text-align: center;
+                    height: 50px;
+                }
+            }
+
+
+            .text-banner-small {
+                margin-top: 15px;
+                height: 25px;
+                text-align: center;
+    
+            }
+
+            mat-card {
+                width: 80%;
+                margin-top: 20px;
+            }
+    
+            .text-banner-large {
+                height: 100px;
+                margin-top: 20px;
+                padding: 15px;
+                text-align: center;
+            }
+        }
+
+    }
+
+    .collection-page-content {
+        margin-top: 20px;
+        min-height: 800px;
+
+        .cards-body {
+            width: 100%;
+            padding-top: 25px;
+
+            .card {
+                min-width: 355px;
+                min-height: 355px;
+                padding-top: 10px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    }
+
+}

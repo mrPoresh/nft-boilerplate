@@ -1,4 +1,45 @@
 <div class="explore-collections-body">
-    <p>Works</p>
-    <router-outlet></router-outlet>
+    <div class="explore-header" fxLayout="column" fxLayoutAlign="center center">
+        <h1>Explore Collections</h1>
+    </div>
+
+    <div class="explore-body">  <!-- ng template for card component? -->
+        <mat-tab-group>
+
+            <mat-tab><ng-template mat-tab-label>
+                <span>Trending</span>
+            </ng-template>
+                <div class="cards-body" fxLayout="column" fxLayoutAlign="start center"> <!-- fxLayout="row wrap" fxLayoutGap="10px grid" -->
+                    <div class="card" *ngFor="let NFTData of collections[0]" fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%"><!-- fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%" -->
+                        <app-collection-card [NFTData]="NFTData" (choosedCollection)="chooseCollection($event)"></app-collection-card>
+                    </div>
+                </div>
+            </mat-tab>
+
+            <mat-tab><ng-template mat-tab-label>
+                <span>Top</span>
+            </ng-template>
+                <div class="cards-body" fxLayout="column" fxLayoutAlign="start center"> <!-- fxLayout="row wrap" fxLayoutGap="10px grid" -->
+                    <div class="card" *ngFor="let NFTData of collections[1]" fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%"><!-- fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%" -->
+                        <app-collection-card [NFTData]="NFTData" (choosedCollection)="chooseCollection($event)"></app-collection-card>
+                    </div>
+                </div>
+            </mat-tab>
+
+            <mat-tab><ng-template mat-tab-label>
+                <span>Art</span>
+            </ng-template>
+                <div class="cards-body" fxLayout="column" fxLayoutAlign="start center"> <!-- fxLayout="row wrap" fxLayoutGap="10px grid" -->
+                    <div class="card" *ngFor="let NFTData of collections[2]" fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%"><!-- fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%" -->
+                        <app-collection-card [NFTData]="NFTData" (choosedCollection)="chooseCollection($event)"></app-collection-card>
+                    </div>
+                </div>        
+            </mat-tab>
+
+            <mat-tab><ng-template mat-tab-label>
+                <span>Virtual Worlds</span>
+            </ng-template>Content</mat-tab>
+        </mat-tab-group>
+
+    </div>
 </div>

@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { loginRoute } from 'src/app/app-routing.module'
 import { ExploreCollectionsComponent } from './explore-collections/explore-collections.component';
+import { CollectionsPageComponent } from './collections-page/collections-page.component';
 
 const routes: Routes = [
-  { path: '', component: ExploreCollectionsComponent, children: [
-    loginRoute
-  ]}
+  { path: 'explore-collections', component: ExploreCollectionsComponent },
+  { path: 'collection/:name', component: CollectionsPageComponent },  /* /:id */
 ];
 
 @NgModule({

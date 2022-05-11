@@ -1,0 +1,51 @@
+<div class="collection-page-body" fxLayout="column" fxLayoutAlign="start center">
+    <div class="collection-page-head">
+        <div class="collection-images">
+            <div class="banner">
+                <!-- <img src="{{collection.collectionBackground}}" > -->
+            </div>
+
+            <div class="avatar"  fxLayout="column" fxLayoutAlign="start center" >
+                <img src="{{collection.collectionAvatar}}">
+            </div>
+
+        </div>
+
+        <div class="collection-data" fxLayout="column" fxLayoutAlign="start center">
+
+            <div class="collection-name">
+                <h1>{{collection.collectionName}}</h1>
+            </div>
+
+            <div class="text-banner-small">
+                <p>Created by "some owner"</p>
+            </div>
+
+            <mat-card>
+                <mat-card-content>
+                    <mat-grid-list cols="2" rowHeight="2:1">
+                        <mat-grid-tile>"items"</mat-grid-tile>
+                        <mat-grid-tile>"owners"</mat-grid-tile>
+                        <mat-grid-tile>"floor price"</mat-grid-tile>
+                        <mat-grid-tile>"volume"</mat-grid-tile>
+                      </mat-grid-list>
+                </mat-card-content>
+            </mat-card>
+    
+            <div class="text-banner-large">
+                <p>Welcome to the home of "some owner" Collection on OpenSea. Discover the best items in this collection.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="collection-page-content">
+        <div class="cards-body" fxLayout="column" fxLayoutAlign="start center"> <!-- fxLayout="row wrap" fxLayoutGap="10px grid" -->
+            <div class="card" *ngFor="let NFTData of nftData" fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%"><!-- fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%" -->
+                <app-nft-card [NFTData]="NFTData" ></app-nft-card>  <!-- (choosedCollection)="chooseCollection($event)" -->
+            </div>
+        </div>
+
+    </div>
+</div>

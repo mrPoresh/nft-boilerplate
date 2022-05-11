@@ -1,7 +1,29 @@
-<div class="home-page-body">
-    <p>Home Page!</p>
+<div class="home-page-body" fxLayout="column" fxLayoutAlign="start center">
+    <div class="home-page-head">
+        <div class="home-page-title">
+            <h1>Discover, collect, and sell extraordinary NFTs</h1>
+            <p>ExampleApp is the world's second at now but we are coloniaze the chain space.</p>
+        </div>
 
-    <button (click)="exploreCollections()">Explore</button>
+        <div class="home-page-head-buttons" fxLayout="row" fxLayoutAlign="space-evenly center">
+            <button mat-raised-button color="primary" (click)="exploreCollections()">Explore</button>
+            <button mat-raised-button color="accent">Create</button>
+        </div>
 
-    <router-outlet></router-outlet>
+        <div class="home-page-card" fxLayout="column" fxLayoutAlign="center center">
+            <mat-card class="banner-card">
+                <img mat-card-image src="https://ikzttp.mypinata.cloud/ipfs/QmYDvPAXtiJg7s8JdRBSLWdgSphQdac8j1YuQNNxcGE1hg/660.png">
+                <mat-card-header>
+                    <div mat-card-avatar class="header-image"></div>
+                    <mat-card-title>Beanz Official</mat-card-title>
+                    <mat-card-subtitle>by Azuki</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+        </div>
+
+        <div class="head-page-url">
+            <p>Learn more about App</p>
+        </div>
+    </div>
+
 </div>

@@ -1,0 +1,26 @@
+.card-wrapper {
+    width: 100%;
+
+    .card {
+        box-shadow: 0 0 10px #000000;
+
+        img {
+            max-width: 300px;
+            max-height: 300px;
+        }
+
+        mat-card-header {
+            padding-top: 20px;
+
+            img {
+                max-width: 60px;
+                max-height: 60px;
+            }
+
+            mat-card-title {
+                max-width: 200px;
+            }
+        }
+
+    }
+}

@@ -30,12 +30,9 @@ export class AppComponent extends BasePageComponent implements AfterViewInit {
   ngOnInit() {
     this.moralisService.init().then(() => 
       this.moralisService.requestCheckUserInfo().pipe(takeUntil(this.unsubscribe)).subscribe(
-        res => {this.isLogged = res; console.log("isLogged ->", this.isLogged);}
+        res => { this.isLogged = res; console.log("isLogged ->", this.isLogged); }
       )
-    ).then(() => 
-      this.moralisService.foo().pipe(takeUntil(this.unsubscribe)).subscribe(
-        res => console.log("Responce ->", res)
-      ));
+    )
   }
 
   ngAfterViewInit() {

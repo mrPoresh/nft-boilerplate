@@ -19,19 +19,22 @@ export const signupRoute = {
   component: SignupDialogRouteComponent
 }
 
-const mainModuleRoute = { path: exploreTrx, loadChildren: () => import('./components/main-module/main-module.module').then(m => m.MainModuleModule) }
+const mainModuleRoute = { path: '', loadChildren: () => import('./components/main-module/main-module.module').then(m => m.MainModuleModule) }
 
 const routes: Routes = [
   { 
     path: '', component: HomePageComponent, children: [
       loginRoute,
       signupRoute,
-      mainModuleRoute
     ] 
   },
+  mainModuleRoute,
   {
     path: accountTrx, component: AccountPageComponent
-  }
+  },
+  { 
+    path: '**', redirectTo: '/' 
+  },
 ];
 
 @NgModule({

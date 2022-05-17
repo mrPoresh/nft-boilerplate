@@ -1,0 +1,21 @@
+<div class="card-wrapper" >
+    <mat-card class="card" (click)="onClick(NFTData)">
+            <img src={{NFTData.metadata.image}} class="card-img-top">
+<!--              <mat-card-header>
+                <mat-card-title><p>{{NFTData.name}}</p></mat-card-title>
+            </mat-card-header> -->
+            <mat-card-content>
+                <div class="card-content" fxLayout="row" fxLayoutAlign="center center">
+                    <div class="name-container" fxLayout="column" fxLayoutAlign="start start">
+                        <h3>{{NFTData.name}}</h3>
+                        <p>{{NFTData.metadata.name}}</p>
+                    </div>
+
+                    <div class="price-container" fxLayout="column" fxLayoutAlign="start end">
+                        <h3>Price</h3>
+                        <div fxLayout="row"><img src="assets/icons/eth.svg"><p>1</p></div>
+                    </div>
+                </div>
+            </mat-card-content>
+    </mat-card>
+</div>

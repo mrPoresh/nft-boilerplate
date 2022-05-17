@@ -5,8 +5,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { SharedMaterialModule } from './modules/shared-material.module';
+import { SharedComponentsModule } from './modules/shared-components.module';
+
+import { AppComponent } from './app.component';
 import { BaseComponent } from './components/base-components/base/base.component';
 import { BasePageComponent } from './components/base-components/base-page/base-page.component';
 import { CloseDialogButtonComponent } from './components/base-components/dialogs/close-dialog-button/close-dialog-button.component';
@@ -24,11 +26,9 @@ import { LoginButtonComponent } from './components/auth/login/login-button/login
 import { SignupDialogComponent, SignupDialogRouteComponent } from './components/auth/signup/signup-dialog/signup-dialog.component';
 import { SignupFormComponent } from './components/auth/signup/signup-form/signup-form.component';
 import { SignupButtonComponent } from './components/auth/signup/signup-button/signup-button.component';
-import { TestPageComponent } from './components/base-components/test-page/test-page.component';
 import { SignupStepOneComponent } from './components/auth/signup/signup-step-one/signup-step-one.component';
 import { SignupStepTwoComponent } from './components/auth/signup/signup-step-two/signup-step-two.component';
 import { SignupStepThreeComponent } from './components/auth/signup/signup-step-three/signup-step-three.component';
-import { AccountPageComponent } from './components/user/account-page/account-page.component';
 import { HomePageComponent } from './components/base-components/home-page/home-page.component';
 
 @NgModule({
@@ -53,11 +53,9 @@ import { HomePageComponent } from './components/base-components/home-page/home-p
     SignupDialogRouteComponent,
     SignupFormComponent,
     SignupButtonComponent,
-    TestPageComponent,
     SignupStepOneComponent,
     SignupStepTwoComponent,
     SignupStepThreeComponent,
-    AccountPageComponent,
     HomePageComponent,
   ],
   imports: [
@@ -68,6 +66,7 @@ import { HomePageComponent } from './components/base-components/home-page/home-p
     SharedMaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

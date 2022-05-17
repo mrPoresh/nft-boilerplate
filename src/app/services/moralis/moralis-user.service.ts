@@ -85,7 +85,7 @@ export class MoralisUserService extends MoralisMainService {
     });
   }
 
-  /* --------------------------------------------------- */
+  /* ---- Registration with back ----------------------------------------------- */
 
   createUserRegisterObj(userForm: FormGroup): Moralis.Object<Moralis.Attributes> {
     let user = USER_R;
@@ -229,6 +229,28 @@ export class MoralisUserService extends MoralisMainService {
 
   public completeRegistrationSteps() {
     this.cookie.delete(REGISTRATION_STEP_COOKIE_NAME);
+  }
+
+  /* --------------------------------------------------- */
+
+  public getUser() {
+    return Moralis.User.current()
+  }
+
+  public saveUserChanges(user: User, form: FormGroup) {
+    if (form.value.avatar != null) {
+      const avatar = new Moralis.File(form.value.avatarName, form.value.avatar);
+      user.set('avatar', avatar);
+    }
+
+    Object.keys(form.controls).forEach((key) => {
+      if (form.controls[key].value != null && key != 'avatarName' && key != 'avatar') {
+        console.log(key, form.controls[key].value)
+        user.set(key, form.controls[key].value);
+      }
+    });
+
+    return from(user.save())
   }
 
 }

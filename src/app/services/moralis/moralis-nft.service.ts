@@ -29,42 +29,12 @@ export class MoralisNftService extends MoralisMainService {
     this.choosedObject.next(nft);
   }
 
-
-  /* ---------------------------------------------------------------------------- */
-
-/*   loadPreviewCollections(optionsArray: CollectionOptions[]) {     //unsub?
-    const nftArray: Observable<any>[] = []
-    optionsArray.forEach((item) => {
-      const data: Observable<any> = this.getTokenIdMetadata(item).pipe(
-        map(res => {
-
-            if(res.metadata) {
-              res.metadata = JSON.parse(res.metadata);
-            } else if (!res.metadata && res.token_uri) {
-              this.fetchJSON(res.token_uri).subscribe(res => {
-                res.metadata = res.data
-              })
-            }
-
-          return res
-        }),
-        catchError(err => {
-          return throwError(() => err);
-        })
-      );
-      nftArray.push(data);
-    });
-
-    return forkJoin(nftArray)
-
-  } */
-
   /* ---------------------------------------------------------------------------- */
 
   /* NFT API */
 
   loadCollections(options: CollectionOptions[]) {     //unsub?
-    const nftData: Observable<any>[] = []
+    const nftData: Observable<any>[] = [];
     options.forEach((item) => {
       nftData.push(this.getAllTokenIds(item).pipe(
         map((res) => {
@@ -85,6 +55,29 @@ export class MoralisNftService extends MoralisMainService {
 
     return forkJoin(nftData)
 
+  }
+
+  loadUsersNFTs(options: CollectionOptions[]) {
+    const nftData: Observable<any>[] = [];
+    options.forEach((item) => {
+      nftData.push(this.getUserNFTs(item).pipe(
+        map((res) => {
+          res.result?.forEach((item) => {
+            if(item.metadata) {
+              item.metadata = JSON.parse(item.metadata);
+            } else if (!item.metadata && item.token_uri) {
+              this.fetchJSON(item.token_uri).subscribe(res => {
+                item.metadata = res.data
+              })
+            }
+          });
+
+          return res.result
+        })
+      ));
+    });
+
+    return forkJoin(nftData)
   }
 
   /* ---------------------------------------------------------------------------- */

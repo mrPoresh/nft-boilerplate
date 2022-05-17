@@ -16,7 +16,7 @@ export class CollectionsPageComponent extends BasePageComponent implements OnIni
   public collection_address!: string | null;
   public collection: any;
   public options!: CollectionOptions;
-  public nftData!: any[]
+  public nftData!: any[];
 
 
   constructor(

@@ -6,7 +6,7 @@ import { loginTrx, signupTrx, accountTrx, exploreTrx } from './router-translatio
 //import { TestPageComponent } from './components/base-components/test-page/test-page.component';
 import { LoginDialogRouteComponent } from './components/auth/login/login-dialog/login-dialog.component';
 import { SignupDialogRouteComponent } from './components/auth/signup/signup-dialog/signup-dialog.component';
-import { AccountPageComponent } from './components/user/account-page/account-page.component';
+import { AccountPageComponent } from './components/user-module/account-page/account-page.component';
 import { HomePageComponent } from './components/base-components/home-page/home-page.component';
 
 export const loginRoute = {
@@ -20,6 +20,7 @@ export const signupRoute = {
 }
 
 const mainModuleRoute = { path: '', loadChildren: () => import('./components/main-module/main-module.module').then(m => m.MainModuleModule) }
+const userModuleRoute = { path: 'account', loadChildren: () => import('./components/user-module/user-module.module').then(m => m.UserModuleModule) }
 
 const routes: Routes = [
   { 
@@ -29,9 +30,7 @@ const routes: Routes = [
     ] 
   },
   mainModuleRoute,
-  {
-    path: accountTrx, component: AccountPageComponent
-  },
+  userModuleRoute,
   { 
     path: '**', redirectTo: '/' 
   },

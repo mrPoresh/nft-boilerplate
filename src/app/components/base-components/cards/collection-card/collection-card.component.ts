@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { BasePageComponent } from '../../../base-components/base-page/base-page.component';
+import { BasePageComponent } from '../../base-page/base-page.component';
 
 @Component({
   selector: 'app-collection-card',

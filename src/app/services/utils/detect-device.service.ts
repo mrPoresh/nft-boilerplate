@@ -16,5 +16,9 @@ export class DetectDeviceService {
   isDesktop() {
     return this.deviceService.isDesktop()
   }
+
+  foo() {
+    return this.deviceService.getDeviceInfo()
+  }
   
 }

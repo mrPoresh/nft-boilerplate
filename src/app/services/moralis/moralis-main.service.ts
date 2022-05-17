@@ -62,6 +62,14 @@ export class MoralisMainService {
 
   /* ---------------------------------------------------------------------- */
 
+  /* Acc API */
+
+  getUserNFTs(options: any) {
+    return from(Moralis.Web3API.account.getNFTs(options))
+  }
+
+  /* ---------------------------------------------------------------------- */
+
   /* Queries */
 
   getCollectionsDBbyTag(tag: string): Observable<Moralis.Object<Moralis.Attributes>[]> {

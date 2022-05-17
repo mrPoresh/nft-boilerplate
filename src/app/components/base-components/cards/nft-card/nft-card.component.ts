@@ -17,7 +17,7 @@ export class NftCardComponent extends BasePageComponent implements OnInit {
   constructor() { super() }
 
   ngOnInit() {
-    
+    /* console.log("Get NFTData ->", this.NFTData) */
   }
 
   onClick(NFTData: any) {

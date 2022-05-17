@@ -60,3 +60,18 @@ export class AppComponent extends BasePageComponent implements AfterViewInit {
   }
 
 }
+
+/* 
+
+  1. User Acc Page:
+    - User Avatar, background, eth adr
+    - User NFTs, Collections
+  
+  2. User Acc Manager:
+    - Changing username and etc.
+
+  3. Mint Page
+  
+  4. Opensea Orders
+
+*/

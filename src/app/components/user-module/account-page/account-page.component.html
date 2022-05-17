@@ -1,0 +1,53 @@
+<div class="account-page-body">
+        <div class="account-page-head">
+            <div class="account-images">
+                <div class="banner">
+                    <!-- <img src="{{collection.collectionBackground}}" > -->
+                </div>
+    
+                <div class="avatar"  fxLayout="column" fxLayoutAlign="start center" >
+                    <img src="{{User.attributes['avatar']._url}}">  <!--  -->
+                </div>
+    
+            </div>
+    
+            <div class="account-data" fxLayout="column" fxLayoutAlign="start center">
+    
+                <div class="username">
+                    <h1>{{User.attributes.username}}</h1>
+                </div>
+
+                <div class="wallet">
+                    <p>{{User.attributes.ethAddress}}</p>
+                </div>
+    
+            </div>
+    
+        </div>
+
+            <mat-tab-group>
+
+                <mat-tab><ng-template mat-tab-label>
+                    <span>Collected</span>
+                </ng-template>
+                    <div class="cards-body" fxLayout="column" fxLayoutAlign="start center" > <!-- fxLayout="row wrap" fxLayoutGap="10px grid" -->
+                        <div class="card" *ngFor="let NFTData of nftData" fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%"><!-- fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%" -->
+                            <app-nft-card [NFTData]="NFTData" ></app-nft-card>  <!-- (choosedCollection)="chooseCollection($event)" -->
+                        </div>
+                    </div>
+                </mat-tab> <!--  -->
+
+                <mat-tab><ng-template mat-tab-label>
+                    <span>
+                        Created
+                    </span>
+                </ng-template>Content</mat-tab>
+
+                <mat-tab label="Favorited"> Content 3 </mat-tab>
+                <mat-tab label="Hidden"> Content 1 </mat-tab>
+                <mat-tab label="Activity"> Content 2 </mat-tab>
+                <mat-tab label="Offers"> Content 3 </mat-tab>
+                <mat-tab label="Listings"> Content 3 </mat-tab>
+            </mat-tab-group>
+
+</div>

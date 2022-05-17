@@ -41,7 +41,7 @@
     </div>
 
     <div class="collection-page-content">
-        <div class="cards-body" fxLayout="column" fxLayoutAlign="start center"> <!-- fxLayout="row wrap" fxLayoutGap="10px grid" -->
+        <div class="cards-body" fxLayout="column" fxLayoutAlign="start center" > <!-- fxLayout="row wrap" fxLayoutGap="10px grid" -->
             <div class="card" *ngFor="let NFTData of nftData" fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%"><!-- fxFlex="50%" fxFlex.xs="50%" fxFlex.sm="50%" -->
                 <app-nft-card [NFTData]="NFTData" ></app-nft-card>  <!-- (choosedCollection)="chooseCollection($event)" -->
             </div>

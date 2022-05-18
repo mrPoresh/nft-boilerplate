@@ -1,0 +1,159 @@
+<div class="focus-body">
+    <div class="focus-top" *ngIf="nftData" fxLayout="column" fxLayoutAlign="start center">
+        <h3>{{nftData.metadata?.name}}</h3>
+
+        <mat-card>
+            <!-- <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center" >
+                <img src="assets/icons/eth.svg">
+                <button mat-icon-button color="primary"><mat-icon>favorite</mat-icon></button>
+            </mat-card-actions> -->
+            <mat-card-content>
+                <img src={{nftData.metadata.image}} class="card-img-top">
+            </mat-card-content>
+        </mat-card>
+
+        <p>Owned by "some Owner"</p>
+
+        <div class="focus-selling" fxLayout="column" fxLayoutAlign="start center">
+            <mat-card>
+                <mat-card-content>
+                    <div class="ex-time">
+                        <p>Some time</p>
+                        <mat-divider></mat-divider>
+                    </div>
+
+                    <div class="buy-options" fxLayout="column" fxLayoutAlign="start center">
+                        <div class="price-contanier" fxLayout="column">
+                            <p>Current price</p>
+                            <div class="price" fxLayout="row" fxLayoutAlign="start center">
+                                <img src="assets/icons/eth.svg">
+                                <h2>50</h2>
+                            </div>
+                        </div>
+                        <button mat-raised-button color="primary">Buy now</button>
+                        <button mat-raised-button color="accent">Make offer</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+    </div>
+
+    <div class="focus-bottom">
+        <mat-accordion class="focus-data" multi fxLayout="column" fxLayoutAlign="start center">
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Price History
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+            
+                <mat-form-field appearance="fill">  <!-- content -->
+                  <mat-label>First name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+            
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Listings
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+            
+                <mat-form-field appearance="fill">  <!-- content -->
+                  <mat-label>First name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+            
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Offers
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+            
+                <mat-form-field appearance="fill">  <!-- content -->
+                  <mat-label>First name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+            
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Description
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+            
+                <mat-form-field appearance="fill">  <!-- content -->
+                  <mat-label>First name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+            
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Propetries
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+            
+                <mat-form-field appearance="fill">  <!-- content -->
+                  <mat-label>First name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+            
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Details
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+            
+                <mat-form-field appearance="fill">  <!-- content -->
+                  <mat-label>First name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+            
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Item Activity
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+            
+                <mat-form-field appearance="fill">  <!-- content -->
+                  <mat-label>First name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+            
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    More From this Collection
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+            
+                <mat-form-field appearance="fill">  <!-- content -->
+                  <mat-label>First name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+            
+            </mat-expansion-panel>
+
+        </mat-accordion>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, map, takeUntil } from 'rxjs';
 
 import { MoralisNftService } from 'src/app/services/moralis/moralis-nft.service';
@@ -22,6 +22,7 @@ export class CollectionsPageComponent extends BasePageComponent implements OnIni
   constructor(
     /* public activatedRoute: ActivatedRoute, */
     public moralisService: MoralisNftService,
+    public router: Router,
   ) { 
     super() 
   }
@@ -50,4 +51,11 @@ export class CollectionsPageComponent extends BasePageComponent implements OnIni
     })
 
   }
+
+  choosedNFT(nft: any) {
+    this.moralisService.changeChoosedObject(nft);
+    this.router.navigate(['assets' + '/' + nft.token_address + '/' + nft.token_id]);
+    console.log("Selected ->", nft);
+  }
+  
 }

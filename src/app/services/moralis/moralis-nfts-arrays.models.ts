@@ -4,11 +4,25 @@ export interface CollectionOptions {
     limit?: number;
 }[];
 
+export interface NFTsOptions {
+    chain: string;
+    address: string;
+    token_id: string;
+}[];
+
+export interface OpenSeaPluginOptions {
+    network: string, 
+    tokenAddress: string, 
+    tokenId: string,
+    orderSide?: number,
+    page?: number, 
+}[];
+
 export interface CollectionData {
     
-}
+};
 
-export interface NFTBasic {
+export interface NFTData {
     token_address: string;
     token_id: string;
     contract_type: string;
@@ -17,11 +31,11 @@ export interface NFTBasic {
     amount?: string | undefined;
     name: string;
     symbol: string;
-    metadata?: {
+    metadata?: string | undefined; /* {
         image: string,
         name: string,
         description?: string,
-    };
+    }; */
 }[];
 
 export const HomeBanersNFT = [

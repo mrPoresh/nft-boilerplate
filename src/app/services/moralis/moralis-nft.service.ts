@@ -4,7 +4,7 @@ import { BehaviorSubject, catchError, forkJoin, from, map, Observable, of, switc
 
 import { MoralisMainService } from './moralis-main.service';
 
-import { CollectionOptions, NFTBasic, TopCollections } from './moralis-nfts-arrays.models';
+import { CollectionOptions, NFTsOptions } from './moralis-nfts-arrays.models';
 
 export interface CollectionData {
   token_address: any
@@ -55,6 +55,22 @@ export class MoralisNftService extends MoralisMainService {
 
     return forkJoin(nftData)
 
+  }
+
+  loadNFT(option: NFTsOptions) {
+    return this.getTokenIdMetadata(option).pipe(
+      map((res) => {
+        if (res.metadata) {
+          res.metadata = JSON.parse(res.metadata);
+        } else if (!res.metadata && res.token_uri) {
+          this.fetchJSON(res.token_uri).subscribe(data => {
+            res.metadata = data.data;
+          });
+        }
+
+        return res
+      })
+    );
   }
 
   loadUsersNFTs(options: CollectionOptions[]) {

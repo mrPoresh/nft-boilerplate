@@ -12,7 +12,7 @@ export class NftCardComponent extends BasePageComponent implements OnInit {
   choosen: boolean = false;
 
   @Input() NFTData: any;
-  @Output() choosedCollection = new EventEmitter<any>();
+  @Output() choosedNFT = new EventEmitter<any>();
 
   constructor() { super() }
 
@@ -21,6 +21,6 @@ export class NftCardComponent extends BasePageComponent implements OnInit {
   }
 
   onClick(NFTData: any) {
-    this.choosedCollection.emit(NFTData);
+    this.choosedNFT.emit(NFTData);
   }
 }

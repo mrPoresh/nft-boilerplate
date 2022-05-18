@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Moralis } from 'moralis';
-import { from, map, Observable, of } from 'rxjs';
+import { catchError, from, map, Observable, of, throwError } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 
@@ -25,6 +25,10 @@ export class MoralisMainService {
 
     console.log("App Id ->", environment.moralis.appId);
     console.log("Server ->", environment.moralis.serverUrl);
+  }
+
+  async initPlugins() {
+    await Moralis.initPlugins()
   }
 
 /*   foo() {
@@ -60,6 +64,10 @@ export class MoralisMainService {
     return from(Moralis.Web3API.token.getTokenIdMetadata(options))
   }
 
+  getWalletTokenIdTransfers(options: any) {
+    return from(Moralis.Web3API.token.getWalletTokenIdTransfers(options))
+  }
+
   /* ---------------------------------------------------------------------- */
 
   /* Acc API */
@@ -78,6 +86,22 @@ export class MoralisMainService {
 
   getCollectionsDBbyAddress(address: string): Observable<Moralis.Object<Moralis.Attributes>[]> {
     return from((new Moralis.Query(this.TopCollections)).equalTo("token_address", address).find())  /* containedIn */
+  }
+
+  /* ---------------------------------------------------------------------- */
+
+  /* Plugins */
+
+  getOpenSeaAsset(option: any) {
+    return from(Moralis.Plugins['opensea'].getAsset(option))
+  }
+
+  getOpenSeaOrders(options: any) {
+    return from(Moralis.Plugins['opensea'].getOrders(options)).pipe(
+      catchError(err => { 
+        return throwError(() => err);
+      })
+    );
   }
 
   /* ---------------------------------------------------------------------- */

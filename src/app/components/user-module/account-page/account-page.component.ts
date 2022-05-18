@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs';
-import { MoralisNftService } from 'src/app/services/moralis/moralis-nft.service';
-import { MoralisUserService } from 'src/app/services/moralis/moralis-user.service';
+import { Router } from '@angular/router';
 
 import { BasePageComponent } from '../../base-components/base-page/base-page.component';
+import { MoralisNftService } from 'src/app/services/moralis/moralis-nft.service';
+import { MoralisUserService } from 'src/app/services/moralis/moralis-user.service';
 
 import { CollectionOptions } from 'src/app/services/moralis/moralis-nfts-arrays.models';
 
@@ -20,7 +21,8 @@ export class AccountPageComponent extends BasePageComponent implements OnInit {
 
   constructor(
     public moralisUserService: MoralisUserService,
-    public moralisNftService: MoralisNftService
+    public moralisNftService: MoralisNftService,
+    public router: Router,
   ) { super() }
 
   ngOnInit() {
@@ -33,6 +35,12 @@ export class AccountPageComponent extends BasePageComponent implements OnInit {
       this.nftData = res[0];
       console.log("NFT Data ->", this.nftData);
     })
+  }
+
+  choosedNFT(nft: any) {
+    this.moralisNftService.changeChoosedObject(nft);
+    this.router.navigate(['assets' + '/' + nft.token_address + '/' + nft.token_id]);
+    console.log("Selected ->", nft);
   }
 
 }

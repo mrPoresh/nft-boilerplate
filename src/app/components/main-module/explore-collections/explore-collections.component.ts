@@ -28,8 +28,8 @@ export class ExploreCollectionsComponent extends BasePageComponent implements On
   }
 
   chooseCollection(collection: any) {
-    this.moralisService.changeChoosedObject(collection);
-    this.router.navigate(['collection' + '/' + collection.collectionName.replace(/\s/g, "") + '/' /* + collection.token_address */]);
+    /* this.moralisService.changeChoosedObject(collection); */
+    this.router.navigate(['collection' + '/' + collection.collectionName.replace(/\s/g, "") + '/' + collection.token_address]);
     console.log("Selected ->", collection);
   }
 

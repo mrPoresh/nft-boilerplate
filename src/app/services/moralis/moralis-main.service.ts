@@ -96,12 +96,16 @@ export class MoralisMainService {
     return from(Moralis.Plugins['opensea'].getAsset(option))
   }
 
-  getOpenSeaOrders(options: any) {
+  getOpenSeaOrders(options: any): Observable<any> {
     return from(Moralis.Plugins['opensea'].getOrders(options)).pipe(
       catchError(err => { 
         return throwError(() => err);
       })
     );
+  }
+
+  createOpenSeaBuyOrder(options: any): Observable<any> {
+    return from(Moralis.Plugins['opensea'].createBuyOrder(options))
   }
 
   /* ---------------------------------------------------------------------- */

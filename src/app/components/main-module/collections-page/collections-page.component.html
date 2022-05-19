@@ -1,11 +1,11 @@
 <div class="collection-page-body" fxLayout="column" fxLayoutAlign="start center">
-    <div class="collection-page-head">
+    <div class="collection-page-head" *ngIf="collection">
         <div class="collection-images">
             <div class="banner">
                 <!-- <img src="{{collection.collectionBackground}}" > -->
             </div>
 
-            <div class="avatar"  fxLayout="column" fxLayoutAlign="start center" >
+            <div class="avatar" fxLayout="column" fxLayoutAlign="start center" >
                 <img src="{{collection.collectionAvatar}}">
             </div>
 

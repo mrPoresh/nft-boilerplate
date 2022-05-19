@@ -8,7 +8,7 @@ import { FocusPageComponent } from './focus-page/focus-page.component';
 
 const routes: Routes = [
   { path: 'explore-collections', component: ExploreCollectionsComponent },
-  { path: 'collection/:name', component: CollectionsPageComponent },  /* /:id */
+  { path: 'collection/:name/:address', component: CollectionsPageComponent },
   { path: 'assets', component: AssetsPageComponent },
   { path: 'assets/:address/:id', component: FocusPageComponent },
 ];

@@ -17,21 +17,22 @@
         <div class="focus-selling" fxLayout="column" fxLayoutAlign="start center">
             <mat-card>
                 <mat-card-content>
-                    <div class="ex-time">
+                    <div class="ex-time" *ngIf="nftOrders != undefined">
                         <p>Some time</p>
                         <mat-divider></mat-divider>
                     </div>
 
                     <div class="buy-options" fxLayout="column" fxLayoutAlign="start center">
-                        <div class="price-contanier" fxLayout="column">
+                        <div class="price-contanier" *ngIf="nftOrders != undefined" fxLayout="column">
                             <p>Current price</p>
                             <div class="price" fxLayout="row" fxLayoutAlign="start center">
                                 <img src="assets/icons/eth.svg">
                                 <h2>50</h2>
                             </div>
                         </div>
-                        <button mat-raised-button color="primary">Buy now</button>
-                        <button mat-raised-button color="accent">Make offer</button>
+                        <button mat-raised-button color="primary" *ngIf="nftOrders != undefined">Buy now</button>
+                        <button mat-raised-button color="accent" (click)="makeBuyOrder()">Make offer</button>
+                        <button mat-raised-button color="primary" *ngIf="nftOrders != undefined">Place Bid</button>
                     </div>
                 </mat-card-content>
             </mat-card>

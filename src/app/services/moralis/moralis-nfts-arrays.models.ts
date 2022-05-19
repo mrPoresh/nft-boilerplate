@@ -18,6 +18,16 @@ export interface OpenSeaPluginOptions {
     page?: number, 
 }[];
 
+export interface OpenSeaPluginBuyOrder {
+    network: string,
+    tokenAddress: string,
+    tokenId: string,
+    tokenType: string,
+    amount: number,
+    userAddress: string,
+    paymentTokenAddress: string,
+};
+
 export interface CollectionData {
     
 };
